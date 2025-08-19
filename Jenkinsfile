@@ -18,7 +18,7 @@ pipeline {
         SONAR_PROJECT_NAME = 'customer-api'
         SONAR_ORGANIZATION = 'hasana9440'
         // --- Docker / Deploy ---
-        APP_NAME              = 'customer-api'
+        APP_NAME              = 'customer_spring'
         // <username>/<repo>
         DOCKER_IMAGE          = "hasana9440/${APP_NAME}"    
         CONTAINER_NAME        = 'customer-api'
