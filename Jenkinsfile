@@ -13,9 +13,9 @@ pipeline {
 
     environment {
         // define the SonarQube server URL and credentials
-        SONARQUBE_SERVER = 'SonarCloud'
-        SONAR_PROJECT_KEY = ''
-        SONAR_PROJECT_NAME = ''
+        SONARQUBE_SERVER = 'Sonar cloud'
+        SONAR_PROJECT_KEY = 'hasana9440_customer-api'
+        SONAR_PROJECT_NAME = 'customer-api'
         SONAR_ORGANIZATION = 'hasana9440'
         // --- Docker / Deploy ---
         APP_NAME              = 'customer-api'
@@ -38,7 +38,7 @@ pipeline {
                 echo 'Cloning repository...'
                 // by default jenkins will use the master branch
                 // if you want to use a different branch, specify it here
-                git branch: 'main', url: ''
+                git branch: 'main', url: 'https://github.com/hasana9440/jenkins_Practice.git'
             }
         }
 
@@ -88,7 +88,7 @@ pipeline {
 
         stage('Quality Gate Check') {
             steps {
-                timeout(time: 10, unit: 'MINUTES') {
+                timeout(time: 5, unit: 'MINUTES') {
                     echo 'Waiting for SonarQube quality gate...'
                     waitForQualityGate abortPipeline: true
                 }
@@ -139,5 +139,6 @@ pipeline {
             echo 'Pipeline succeeded with status: ${currentBuild.currentResult}'
         }
     }
+
 
 }
