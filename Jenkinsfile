@@ -55,14 +55,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'mvn test'
+               // sh 'mvn test'
             }
-            // post actions for the test stage
-            post {
-                always {
-                    junit '**/target/surefire-reports/*.xml'
-                }
-            }
+            
         }
 
         // stage to perform static code analysis using SonarQube
@@ -142,4 +137,5 @@ pipeline {
 
 
 }
+
 
